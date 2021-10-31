@@ -19,13 +19,13 @@ export default function Textform(props) {
   }
 
   const [text, setText] = useState('');
-
+   let count=0;
   /* "enter text here " is default value here and it will store in a text varible 
   and whenever we want to update entered text we will call settextfunction.and over page updated without loading of page.*/
-  let noOfWords = text.split(" ").length;
-  if (text === "") {
-    noOfWords = 0;
-  }
+  let noOfWords = text.split(" ").filter((e)=>{
+    if(e!==""){count++};
+  })
+  // console.log(count);
 
   const clearText = () => {
     setText("");
@@ -79,8 +79,8 @@ export default function Textform(props) {
       </div>
       <div className="container my-4" style={{color:props.mode==='dark'?'white':'#042743'}}>
         <h2>Your text summary</h2>
-        <p>{noOfWords} words and {text.length} Characters</p>
-        <p>{0.008 * noOfWords}Minutes to Read</p>
+        <p>{count} words and {text.trim(' ').length} Characters</p>
+        <p>{0.008 * count}Minutes to Read</p>
         <h3>Preview</h3>
         <p>{text}</p>
       </div>
