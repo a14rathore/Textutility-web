@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 function App() {
   const [mode, setDarkMode] = useState('light');
@@ -36,19 +35,19 @@ function App() {
   }
   return (
     <>
-    <Router>
-    <Navbar Title="Textutils" About="About Us" mode={mode} toggleMode={toggleMode}></Navbar>
-      <Alert alert={alert} />
-      <Switch>
-        <Route path="/about">
-          <AboutUs/>
-        </Route>
-        <Route path="/">
-          <TextForm Heading="Enter Text in below Area" mode={mode} showalert={showalert} />
-        </Route>
-      </Switch>
-    </Router>
-      
+      <Router>
+        <Navbar Title="Textutils" About="About Us" mode={mode} toggleMode={toggleMode}></Navbar>
+        <Alert alert={alert} />
+        <Switch>
+          <Route exact path="/about">
+            <AboutUs />
+          </Route>
+          <Route exact path="/">
+            <TextForm Heading="Enter Text in below Area" mode={mode} showalert={showalert} />
+          </Route>
+        </Switch>
+      </Router>
+
     </>
   );
 }

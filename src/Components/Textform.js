@@ -22,7 +22,7 @@ export default function Textform(props) {
    let count=0;
   /* "enter text here " is default value here and it will store in a text varible 
   and whenever we want to update entered text we will call settextfunction.and over page updated without loading of page.*/
-  let noOfWords = text.split(" ").filter((e)=>{
+   text.split(" ").filter((e)=>{
     if(e!==""){count++};
   })
   // console.log(count);
